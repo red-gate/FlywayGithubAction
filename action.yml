@@ -21,7 +21,7 @@ inputs:
 
 runs:
   using: docker
-  image: docker://redgate/flyway:9
+  image: redgate/flyway:latest-alpine
   env:
     FLYWAY_URL: ${{ inputs.url }}
     FLYWAY_USER: ${{ inputs.user }}
