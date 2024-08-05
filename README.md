@@ -11,12 +11,12 @@ Official Redgate GitHub Action for Flyway
 ```
 steps:
   - uses: red-gate/FlywayGitHubAction@main
-  with:
-    url: jdbc:postgresql://postgres:5432/db
-    user: user
-    password: password
-    locations: ./sql
-    extraArgs: -outOfOrder=true
+    with:
+      url: jdbc:postgresql://postgres:5432/db
+      user: user
+      password: password
+      locations: filesystem:./sql
+      extraArgs: -outOfOrder=true
 ```
 
 ## `extraArgs`
