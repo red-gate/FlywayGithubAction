@@ -2,7 +2,7 @@
 
 ![Badge](./badge.svg)
 
-![Flyway logo](./flyway.png)
+![Flyway logo](./Flyway_logo.svg)
 
 Official Redgate GitHub Action for Flyway
 
