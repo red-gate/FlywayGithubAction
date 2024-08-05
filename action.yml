@@ -1,21 +1,20 @@
-# action.yml
 name: "Flyway Migrate"
-description: "Execute a migrate command using the flyway cli"
+description: "Execute the migrate command using the flyway CLI"
 inputs:
   url:
-    description: "Target database to migrate"
+    description: "JDBC URL for the database to migrate"
     required: false
   user:
-    description: "Username to login to target"
+    description: "Username to login to the database"
     required: false
   password:
-    description: "Password to login to target"
+    description: "Password to login to the database"
     required: false
   locations:
     description: "Comma-separated list of locations to scan recursively for migrations"
     required: false
   extraArgs:
-    description: "blah"
+    description: "Extra arguments to pass to Flyway that aren't specified by this GitHub Action. See https://documentation.red-gate.com/fd/parameters-224919673.html for possible options."
     required: false
     default: ""
 
