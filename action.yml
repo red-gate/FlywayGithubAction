@@ -1,0 +1,31 @@
+# action.yml
+name: "Flyway Migrate"
+description: "Execute a migrate command using the flyway cli"
+inputs:
+  url:
+    description: "Target database to migrate"
+    required: false
+  user:
+    description: "Username to login to target"
+    required: false
+  password:
+    description: "Password to login to target"
+    required: false
+  locations:
+    description: "Comma-separated list of locations to scan recursively for migrations"
+    required: false
+  extraArgs:
+    description: "blah"
+    required: false
+    default: ""
+
+runs:
+  using: docker
+  image: docker://redgate/flyway:9
+  env:
+    FLYWAY_URL: ${{ inputs.url }}
+    FLYWAY_USER: ${{ inputs.user }}
+    FLYWAY_PASSWORD: ${{ inputs.password }}
+    FLYWAY_LOCATIONS: ${{ inputs.locations }}
+  args:
+    - migrate ${{ inputs.extraArgs }}
