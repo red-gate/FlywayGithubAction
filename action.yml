@@ -27,4 +27,6 @@ runs:
     FLYWAY_PASSWORD: ${{ inputs.password }}
     FLYWAY_LOCATIONS: ${{ inputs.locations }}
   args:
-    - migrate ${{ inputs.extraArgs }}
+    - migrate
+    - ${{ inputs.extraArgs }}
+    - X
