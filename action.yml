@@ -29,4 +29,3 @@ runs:
   args:
     - migrate
     - ${{ inputs.extraArgs }}
-    - -X
