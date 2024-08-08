@@ -4,7 +4,9 @@
 
 ![Flyway logo](./Flyway_logo.svg)
 
-Official Redgate GitHub Action for Flyway
+Official Redgate GitHub Action for Flyway.
+
+Use this action to run a Flyway migrate command.
 
 ## Example usage
 
@@ -21,7 +23,7 @@ steps:
 
 ## `extraArgs`
 
-The Flyway Github Action provides direct support for the most common Flyway parameters. The `extraArgs` input is provided so that parameters that aren't directly supported by the GitHub Action can be used.
+The Flyway Github Action provides direct support for the most common parameters. The `extraArgs` input is provided so that parameters that aren't directly supported by the GitHub Action can be used.
 
 Items supplied to `extraArgs` need to be specified as if they're being passed on the commandline. E.g:
 
