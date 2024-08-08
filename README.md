@@ -26,3 +26,6 @@ The Flyway Github Action provides direct support for the most common Flyway para
 Items supplied to `extraArgs` need to be specified as if they're being passed on the commandline. E.g:
 
 `extraArgs: -outOfOrder=true -stream=true`
+
+## Disclaimer
+This GitHub Action is provided on an as is basis and no warranties or representations of any sort are made. Please note that you are solely responsible for any data which you input into the Action. We recommend that no personal or confidential information is included.
