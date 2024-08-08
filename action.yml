@@ -29,3 +29,7 @@ runs:
   args:
     - migrate
     - ${{ inputs.extraArgs }}
+
+branding:
+  icon: database
+  color: red
