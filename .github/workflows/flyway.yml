@@ -1,0 +1,56 @@
+name: Flyway Migrations
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'flyway/**'
+      - '.github/workflows/flyway.yml'
+
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  migrate-dry-run:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    container: ubuntu:22.04
+    strategy:
+      fail-fast: false
+      matrix:
+        mysql_version: [5.7, 8.0]
+    services:
+      mysql:
+        image: mysql:${{ matrix.mysql_version }}
+        env:
+          MYSQL_USER: flyway
+          MYSQL_PASSWORD: flyway
+          MYSQL_ROOT_PASSWORD: flyway
+          MYSQL_DATABASE: flyway
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysql -h 127.0.0.1 -P 3306 -uflyway -pflyway -e 'SELECT 1'"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5          
+
+    steps:
+      - name: Checkout
+        id: checkout
+        uses: actions/checkout@v4.1.7
+        with:
+          sparse-checkout: 'flyway'
+          sparse-checkout-cone-mode: false
+
+      - name: Flyway Migrate for MySQL ${{ matrix.mysql_version }}
+        uses: red-gate/FlywayGitHubAction@v0.1.5
+        with:
+          url: jdbc:mysql://mysql:3306/flyway?allowPublicKeyRetrieval=true&useSSL=false
+          user: root
+          password: flyway
+          locations: filesystem:./flyway
+          extraArgs: -validateMigrationNaming=true -baselineVersion=1
