@@ -53,4 +53,4 @@ jobs:
           user: root
           password: flyway
           locations: filesystem:./flyway
-          extraArgs: -validateMigrationNaming=true
+          extraArgs: -validateMigrationNaming=true -baselineVersion=1
