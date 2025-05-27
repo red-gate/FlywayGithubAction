@@ -1,10 +1,9 @@
 # Flyway GitHub Action
 
-![Badge](./badge.svg)
-
-![Flyway logo](./Flyway_logo.svg)
-
-Official Redgate GitHub Action for Flyway.
+> [!WARNING]
+> This Action has been deprecated and will no longer recieve updates.
+> Please migrate to the [setup-flyway](https://github.com/red-gate/setup-flyway) action or use the [Flyway Docker image](https://hub.docker.com/r/redgate/flyway) directly.
+> For detailed instructions on how to migrate, please refer to the [migration guide](migration-guide.md).
 
 Use this action to run a Flyway migrate command.
 
